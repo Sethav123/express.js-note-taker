@@ -31,9 +31,8 @@ app.get('/api/notes', (req, res) => {
 // POST Route to save a new note to /db/db.json
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
-  newNote.id = uuidv4(); // Generate a unique id for the new note
-
-  // Read existing notes, append the new note, and write back to the file
+  newNote.id = uuidv4(); 
+  
   readAndAppend(newNote, './db/db.json')
     .then(() => res.json(newNote))
 });
